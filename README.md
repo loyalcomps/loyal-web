@@ -1,1 +1,1 @@
-# loyal-web
+# loyal-portal

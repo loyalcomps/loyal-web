@@ -13,9 +13,9 @@ class AccountAnalyticLine(models.Model):
         # res.append(('task_id.project_id.privacy_visibility', '=', 'portal'))
         # res.append(('timesheet_invoice_type', 'in', ['billable_time', 'non_billable','billable_fixed']))
 
-        # res = [('timesheet_invoice_type', 'in', ['billable_time', 'non_billable','billable_fixed']) if i == ('timesheet_invoice_type', 'in', ['billable_time', 'non_billable']) else i for i in res]
-        # return res
-        return expression.OR([res, [('timesheet_invoice_type', 'in', ['billable_time', 'non_billable','billable_fixed'])]])
+        res = [('timesheet_invoice_type', 'in', ['billable_time', 'non_billable','billable_fixed']) if i == ('timesheet_invoice_type', 'in', ['billable_time', 'non_billable']) else i for i in res]
+        return res
+        # return expression.OR([res, [('timesheet_invoice_type', 'in', ['billable_time', 'non_billable','billable_fixed'])]])
     # #
     # @api.depends('so_line.product_id', 'project_id', 'task_id')
     # def _compute_timesheet_invoice_type(self):
